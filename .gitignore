@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Ambiente Virtual
+.venv/
+venv/
+ENV/
+env/
+
+# Variáveis de Ambiente (SENSÍVEL)
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários de teste
+testar_*.py
+*.output
+
+# Documentação temporária
+ADICIONAR_*.txt
+MODELO_EMAIL_PROFESSOR.txt
+ROTEIRO_VIDEO.md
+hf_notes.txt
+
+# Node (se houver)
+node_modules/
+package-lock.json
+
+# MCP
+*.mdb
