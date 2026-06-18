@@ -29,8 +29,7 @@ adrs_carregadas = False
 
 load_dotenv()
 
-provider = None
-connection = None
+ia_client = None
 
 def iniciar_adrs():
     global adrs
@@ -46,11 +45,10 @@ def iniciar_adrs():
 
 
 def iniciar_ia():
-    global provider
-    global connection
-    if provider is None or connection is None:
-        provider, connection = conectar_ia()
-    return provider, connection
+    global ia_client
+    if ia_client is None:
+        ia_client = conectar_ia()
+    return ia_client
 
 
 @mcp.tool(name="decisoes_arquiteturais", title="lista de decisoes arquiteturais do saude ocupacional", description="retorna uma lista completa das decisoes arquiteturais do projeto Saúde Ocupacional")
@@ -95,8 +93,8 @@ def sugerir_contingencia_api_externa(id_adr):
     resultado = {}
     carregadas, adrs = iniciar_adrs()
     if carregadas and id_adr in adrs:
-        provider, connection = iniciar_ia()
-        resultado = ia_sugerir_contingencia_para_apis(provider, connection, adrs[id_adr])
+        client = iniciar_ia()
+        resultado = ia_sugerir_contingencia_para_apis(client, adrs[id_adr])
     return resultado
 
 
